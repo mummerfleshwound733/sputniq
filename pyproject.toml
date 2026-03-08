@@ -58,7 +58,7 @@ fail_under = 79
 
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]
-branch = "main"
+branch = "develop"
 changelog_file = "CHANGELOG.md"
 
 [tool.semantic_release.commit_parser_options]
