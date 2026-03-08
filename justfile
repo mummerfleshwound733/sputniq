@@ -11,7 +11,7 @@ mypy:
     uv run mypy
 
 ty:
-    uv run ty check sputniq
+    uv run ty check sputniq tests
 
 static: mypy ty
 

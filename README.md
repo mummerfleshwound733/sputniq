@@ -2,7 +2,6 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/sputniq)](https://pypi.org/project/sputniq/)
 [![Python versions](https://img.shields.io/pypi/pyversions/sputniq)](https://pypi.org/project/sputniq/)
-[![Tests](https://github.com/{owner}/sputniq/actions/workflows/pr_tests.yaml/badge.svg)](https://github.com/{owner}/sputniq/actions)
 [![Coverage](https://codecov.io/gh/{owner}/sputniq/branch/main/graph/badge.svg)](https://codecov.io/gh/{owner}/sputniq)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)

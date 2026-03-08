@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.10", "3.11", "3.12", "3.13"]
+        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
 
     steps:
       - uses: actions/checkout@v4
@@ -22,18 +22,6 @@ jobs:
       - uses: codecov/codecov-action@v5
         with:
           files: coverage.xml
-
-  tests-dev:
-    name: Python 3.14-dev
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v7
-        with:
-          python-version: "3.14-dev"
-      - run: uv sync --group dev
-      - run: uv run pytest
 
   check:
     name: All tests passed
