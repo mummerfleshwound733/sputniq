@@ -37,14 +37,6 @@ strict = true
 python_version = "3.10"
 files = ["sputniq", "tests"]
 
-[[tool.mypy.overrides]]
-module = ["dishka", "dishka.*"]
-ignore_missing_imports = true
-
-[[tool.mypy.overrides]]
-module = "tests.test_integrations_dishka"
-disable_error_code = ["misc", "untyped-decorator"]
-
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
@@ -58,7 +50,6 @@ fail_under = 79
 
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]
-branch = "develop"
 changelog_file = "CHANGELOG.md"
 
 [tool.semantic_release.commit_parser_options]
