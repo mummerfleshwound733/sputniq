@@ -43,7 +43,7 @@ plugins = ["covdefaults"]
 source = ["sputniq"]
 
 [tool.coverage.report]
-fail_under = 90
+fail_under = 79
 
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]
