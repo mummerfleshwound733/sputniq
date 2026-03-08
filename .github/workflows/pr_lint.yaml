@@ -1,0 +1,19 @@
+name: Lint
+
+on:
+  pull_request:
+
+jobs:
+  lint:
+    name: Lint & type-check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v7
+        with:
+          python-version: "3.14"
+      - run: uv sync --group dev
+      - run: uv run ruff check sputniq tests
+      - run: uv run ruff format --check sputniq tests
+      - run: uv run mypy
+      - run: uv run ty check sputniq

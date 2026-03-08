@@ -1,0 +1,28 @@
+target-version = "py310"
+line-length = 88
+preview = true
+
+[lint]
+select = ["ALL"]
+ignore = [
+    "ISC001",   # implicit string concat (conflicts with formatter)
+    "D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107",  # missing docstrings
+    "DOC201",   # return not documented (too strict for small helpers)
+    "ANN401",   # Any in annotations
+    "S101",     # assert statements
+    "FBT001", "FBT002", "FBT003",  # boolean traps
+    "CPY001",   # copyright notice
+    "TD002", "TD003",  # TODO author/issue
+    "TRY003",   # long exception messages outside class
+    "EM101", "EM102",  # string/f-string literals in exceptions
+    "BLE001",   # catching blind Exception (needed in task runners)
+    "PERF203",  # try/except in loop (needed for retry logic)
+    "TC003", "TC001", "TC002",
+    "COM812",
+]
+
+[lint.per-file-ignores]
+"tests/**" = ["ANN", "S", "PLR2004", "RUF029", "PLC0415", "ARG001", "INP001", "F821", "PLC2701", "PLR6301", "E402"]
+
+[lint.pydocstyle]
+convention = "google"
