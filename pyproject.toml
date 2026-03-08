@@ -23,16 +23,27 @@ testing = [
     "fastapi>=0.115",
     "httpx>=0.27",
 ]
+dishka = [
+    "dishka<2.0"
+]
 dev = [
     {include-group = "lint"},
     {include-group = "testing"},
-    "pre-commit>=4",
+    {include-group = "dishka"},
 ]
 
 [tool.mypy]
 strict = true
 python_version = "3.10"
 files = ["sputniq", "tests"]
+
+[[tool.mypy.overrides]]
+module = ["dishka", "dishka.*"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "tests.test_integrations_dishka"
+disable_error_code = ["misc", "untyped-decorator"]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"

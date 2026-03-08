@@ -26,7 +26,6 @@ async def takes_int(n: int) -> bool:
 if TYPE_CHECKING:
     from typing_extensions import reveal_type
 
-    # mypy / ty evaluate these; pytest never sees them at runtime.
     reveal_type(takes_str)
     reveal_type(takes_int)
 
